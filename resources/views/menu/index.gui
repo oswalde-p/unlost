@@ -1,3 +1,4 @@
 <link rel="stylesheet" href="styles.css" />
 <svg id="view-menu" display="none">
+    <text id="menuTitle">Menu</text>
 </svg>
