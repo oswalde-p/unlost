@@ -1,9 +1,9 @@
-import { me } from "appbit";
-import document from "document";
+import { me } from 'appbit'
+import document from 'document'
 
-import { Application, View, $at } from "../lib/view";
+import { Application, View, $at } from '../lib/view'
 
-const $ = $at("#view-something-else");
+const $ = $at('#view-something-else')
 
 export class ViewSomethingElse extends View {
   el = $();
@@ -12,23 +12,23 @@ export class ViewSomethingElse extends View {
     // this.btnStart = $("#btnStart");
     // this.lblTitle = $("#lblTitle");
 
-    super();
+    super()
   }
 
   goBack = () => {
-    Application.switchTo("ViewMenu");
+    Application.switchTo('ViewMenu')
   }
 
   handleKeypress = (evt) => {
-    if (evt.key === "down") this.goBack();
+    if (evt.key === 'down') this.goBack()
   }
 
   onMount() {
-    me.appTimeoutEnabled = false; // Disable timeout
+    me.appTimeoutEnabled = false // Disable timeout
     console.log('starting second activity')
 
     // this.btnStart.addEventListener("click", this.handleStart);
-    document.addEventListener("keypress", this.handleKeypress);
+    document.addEventListener('keypress', this.handleKeypress)
   }
 
   onRender() {
@@ -37,6 +37,6 @@ export class ViewSomethingElse extends View {
 
   onUnmount() {
     // this.btnStart.removeEventListener("click", this.handleStart);
-    document.removeEventListener("keypress", this.handleKeypress);
+    document.removeEventListener('keypress', this.handleKeypress)
   }
 }

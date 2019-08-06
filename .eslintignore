@@ -1,0 +1,2 @@
+# libraries should stay untouched
+app/lib/*

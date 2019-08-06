@@ -24,6 +24,7 @@
   },
   "scripts": {
     "build": "fitbit-build",
+    "lint": "eslint --ext .js,.jsx .",
     "debug": "fitbit"
   }
 }

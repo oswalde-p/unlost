@@ -1,4 +1,4 @@
-function settingsComponent(props) {
+function settingsComponent(props) { // eslint-disable-line no-unused-vars
   return (
     <Page>
       <Section
@@ -9,7 +9,7 @@ function settingsComponent(props) {
         }
       />
     </Page>
-  );
+  )
 }
 
-registerSettingsPage(settingsComponent);
+registerSettingsPage(settingsComponent) // eslint-disable-line no-undef
