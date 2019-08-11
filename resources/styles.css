@@ -5,3 +5,7 @@ text {
   text-anchor: start;
   fill: white;
 }
+
+#pagination-dots {
+  y: 90%;
+}
