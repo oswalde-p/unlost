@@ -1,0 +1,8 @@
+msgid "hello"
+msgstr "Hello, Jason!"
+
+msgid "nav.back"
+msgstr "Back"
+
+msgid "nav.ok"
+msgstr "Ok!"
