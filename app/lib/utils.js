@@ -47,18 +47,18 @@ export function startsWith(str, word) {
  * @param {number} speed The Speed, in meters per second.
  * @return {object}
  */
-export function formatSpeed(speed) {
-  return convertMetersToMilesOrKilometers(speed * 3600, "kph", "mph");
-}
+// export function formatSpeed(speed) {
+//   return convertMetersToMilesOrKilometers(speed * 3600, "kph", "mph");
+// }
 
 /** @description Formats distance in meters into either miles or kilometers.
  * Returns an object containing a value and units.
  * @param {number} distance The distance travelled in meters.
  * @return {object}
  */
-export function formatDistance(distance) {
-  return convertMetersToMilesOrKilometers(distance, "kilometers", "miles");
-}
+// export function formatDistance(distance) {
+//   return convertMetersToMilesOrKilometers(distance, "kilometers", "miles");
+// }
 
 /** @description Formats the time spent in milliseconds into mm:ss or hh:mm:ss.
  * @param {number} activeTime The time in milliseconds.
@@ -98,15 +98,15 @@ export function formatCalories(calories) {
  * @param {string} unitM The units to return if the value is miles.
  * @return {object}
  */
-export function convertMetersToMilesOrKilometers(meters, unitK, unitM) {
-  let val = (meters || 0) / 1000;
-  let u = unitK;
-  if (units.distance === "us") {
-    val *= 0.621371;
-    u = unitM;
-  }
-  return {
-    value: val.toFixed(2),
-    units: u
-  };
-}
+// export function convertMetersToMilesOrKilometers(meters, unitK, unitM) {
+//   let val = (meters || 0) / 1000;
+//   let u = unitK;
+//   if (units.distance === "us") {
+//     val *= 0.621371;
+//     u = unitM;
+//   }
+//   return {
+//     value: val.toFixed(2),
+//     units: u
+//   };
+// }
