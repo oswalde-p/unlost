@@ -1,11 +1,11 @@
 import { me } from 'appbit'
 import document from 'document'
 import { gettext } from 'i18n'
-
+import { get } from '../lib/messages.js'
 import { Application, View, $at } from '../lib/view'
 
 const $ = $at('#view-menu')
-const listItems = ['menu.komoot', 'menu.gmaps', 'menu.settings']
+const LIST_ITEM_COUNT = 3
 
 export class ViewMenu extends View {
   el = $()
@@ -27,12 +27,16 @@ export class ViewMenu extends View {
 
   onMount() {
     me.appTimeoutEnabled = false // Disable timeout
-    console.log('Showing menu')
-    let nextIndex = 0
-    listItems.forEach((item) => {
-      const viewItem = document.getElementById(`menu-item-${nextIndex++}`)
-      viewItem.getElementById('title').text = gettext(item)
-      viewItem.style.display = 'inline'
+    get('mainMenuItems', listItems => {
+      for(let i = 0; i < LIST_ITEM_COUNT; i++) {
+        const viewItem = document.getElementById(`menu-item-${i}`)
+        let item =listItems[i]
+        if(item) {
+          viewItem.getElementById('title').text = gettext(item.t)
+        } else {
+          viewItem.style.display = 'none'
+        }
+      }
     })
     // this.btnStart.addEventListener("click", this.handleStart);
     document.addEventListener('keypress', this.handleKeypress)

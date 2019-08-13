@@ -2,8 +2,8 @@ import { peerSocket } from 'messaging'
 
 const getters = {}
 
-const addResource = function(key, handler) {
-  getters[key] = handler
+const addResource = function(resource, handler) {
+  getters[resource] = handler
 }
 
 peerSocket.onmessage = function(evt) {
