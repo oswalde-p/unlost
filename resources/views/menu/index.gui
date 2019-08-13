@@ -1,4 +1,22 @@
 <link rel="stylesheet" href="styles.css" />
 <svg id="view-menu" display="none">
-    <text id="menuTitle">Menu</text>
+    <symbol id="menu-item" class="menu-item" focusable="false" pointer-events="visible" system-events="all">
+        <use id="item1" href="#panoramaview-item">
+            <rect id="logo" />
+            <text id="title">menu item</text>
+        </use>
+    </symbol>
+
+    <use id="menu-container" href="#panoramaview">
+        <use id="menu-item-0" href="#menu-item" />
+        <use id="menu-item-1" href="#menu-item" />
+        <use id="menu-item-2" href="#menu-item" />
+
+        <use id="pagination-dots" href="#pagination-widget">
+            <use href="#pagination-dot" />
+            <use href="#pagination-dot" />
+            <use href="#pagination-dot" />
+            <use href="#pagination-highlight-dot" />
+        </use>
+    </use>
 </svg>

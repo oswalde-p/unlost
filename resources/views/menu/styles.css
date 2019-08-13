@@ -1,4 +1,15 @@
-#menuTitle {
-    x: 8;
-    y: 100%-18;
-  }
+#title {
+    font-size: 28;
+    text-anchor: "middle";
+    text-length: 32;
+    x: 50%;
+    y: "70% + 30";
+}
+
+#logo {
+  fill: red;
+  height: 60%;
+  width: 60%;
+  x: 20%;
+  y: 10%;
+}

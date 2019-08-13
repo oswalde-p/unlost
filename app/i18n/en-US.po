@@ -6,3 +6,12 @@ msgstr "Back"
 
 msgid "nav.ok"
 msgstr "Ok!"
+
+msgid "menu.komoot"
+msgstr "Komoot Trips"
+
+msgid "menu.gmaps"
+msgstr "Google Maps"
+
+msgid "menu.settings"
+msgstr "Settings"
