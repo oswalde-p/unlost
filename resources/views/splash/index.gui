@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="styles.css" />
+<svg id="view-splash" display="none">
+    <symbol id="triangle-right">
+        <line x1="50%" x2="50%" y1="0" y2="75%" fill="inherit" />
+        <line x1="50%" x2="100%" y1="0" y2="100%" fill="inherit" />
+        <line x1="50%" x2="100%" y1="75%" y2="100" fill="inherit" />
+    </symbol>
+    <symbol id="triangle-left">
+        <line x1="50%" x2="50%" y1="0" y2="75%" fill="inherit" />
+        <line x1="50%" x2="0" y1="0" y2="100%" fill="inherit" />
+        <line x1="0" x2="50%" y1="100%" y2="75%" fill="inherit" />
+    </symbol>
+
+    <use href="#triangle-left" fill="white" x="40%" y="33%" height="100" width="60" />
+    <use href="#triangle-right" fill="#c439b6" x="40%" y="33%" height="100" width="60" />
+</svg>

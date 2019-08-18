@@ -1,4 +1,5 @@
 <svg>
   <link rel="import" href="views/menu/index.gui" />
+  <link rel="import" href="views/splash/index.gui" />
   <link rel="import" href="views/something-else/index.gui" />
 </svg>

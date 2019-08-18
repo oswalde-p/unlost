@@ -17,7 +17,7 @@ peerSocket.onmessage = function(evt) {
   }
 }
 
-const get = async function(resource, callback) {
+const get = function(resource, callback) {
   handlers[resource] = callback // WARNING - requesting the same resource twice will overwrite the first handler
   if (peerSocket.readyState === peerSocket.OPEN) {
     peerSocket.send({ key:'get', body: resource })
