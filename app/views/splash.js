@@ -4,8 +4,7 @@ import { writeFileSync } from 'fs'
 
 const $ = $at('#view-splash')
 
-const MIN_DISPLAY_MS = 4000
-let gotItems = false
+const MIN_DISPLAY_MS = 2000
 
 export class ViewSplash extends View {
   el = $();
@@ -14,28 +13,8 @@ export class ViewSplash extends View {
     super()
   }
 
-  goToMenu = () => {
-    console.log('switching to main menu')
-    Application.switchTo('ViewMenu')
-  }
-
   onMount() {
-    let waited = false
-    console.log('showing splash')
-
-    get('mainMenuItems', (result) => {
-      writeFileSync('menu_items.json', JSON.stringify(result), 'utf-8') // save to use later in main menu
-      console.log('b')
-      gotItems = true
-      if (waited) Application.switchTo('ViewMenu')
-    })
-
-    setTimeout(() => {
-      waited = true
-      if (gotItems) {
-        this.goToMenu()
-      }
-    }, MIN_DISPLAY_MS)
+    this.fetchAndContinue()
   }
 
   onRender() {
@@ -43,5 +22,25 @@ export class ViewSplash extends View {
   }
 
   onUnmount() {
+  }
+
+  /**
+   * fetch some data from companion, and continue to main menu after at least MIN_DISPLAY_MS
+   */
+  async fetchAndContinue() {
+    await Promise.all([
+      new Promise((resolve, reject) => {
+        get('mainMenuItems', (result) => {
+          try {
+            writeFileSync('menu_items.json', JSON.stringify(result), 'utf-8') // save to use later in main menu
+            resolve()
+          } catch(err) {
+            reject()
+          }
+        })
+      }),
+      new Promise((resolve) => setTimeout(resolve, MIN_DISPLAY_MS)) // wait at least this long
+    ])
+    Application.switchTo('ViewMenu')
   }
 }
