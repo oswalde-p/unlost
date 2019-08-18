@@ -14,6 +14,7 @@ export class ViewSplash extends View {
   }
 
   onMount() {
+    console.log('showing splash')
     this.fetchAndContinue()
   }
 
@@ -28,17 +29,20 @@ export class ViewSplash extends View {
    * fetch some data from companion, and continue to main menu after at least MIN_DISPLAY_MS
    */
   async fetchAndContinue() {
-    await Promise.all([
-      new Promise((resolve, reject) => {
+    const fetchData = new Promise((resolve, reject) => {
+      try{
         get('mainMenuItems', (result) => {
-          try {
-            writeFileSync('menu_items.json', JSON.stringify(result), 'utf-8') // save to use later in main menu
-            resolve()
-          } catch(err) {
-            reject()
-          }
+          writeFileSync('menu_items.json', result, 'json') // save to use later in main menu
         })
-      }),
+        resolve()
+      } catch(err) {
+        console.error(err)
+        reject()
+      }
+    })
+
+    await Promise.all([
+      fetchData,
       new Promise((resolve) => setTimeout(resolve, MIN_DISPLAY_MS)) // wait at least this long
     ])
     Application.switchTo('ViewMenu')

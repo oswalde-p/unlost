@@ -27,8 +27,7 @@ export class ViewMenu extends View {
 
   onMount() {
     me.appTimeoutEnabled = false // Disable timeout
-    const listItems = JSON.parse(readFileSync('menu_items.json', 'utf-8')) // saved in the splash screen
-    console.log(JSON.stringify(listItems, null, 2))
+    const listItems = readFileSync('menu_items.json', 'json') // saved in the splash screen
     for(let i = 0; i < LIST_ITEM_COUNT; i++) {
       const viewItem = document.getElementById(`menu-item-${i}`)
       let item =listItems[i]
