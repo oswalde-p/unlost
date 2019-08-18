@@ -1,9 +1,11 @@
-import { peerSocket } from 'messaging'
 import { Application, View, $at } from '../lib/view'
+import { get } from '../lib/messages.js'
+import { writeFileSync } from 'fs'
 
 const $ = $at('#view-splash')
 
-const MIN_DISPLAY_MS = 1500
+const MIN_DISPLAY_MS = 4000
+let gotItems = false
 
 export class ViewSplash extends View {
   el = $();
@@ -18,12 +20,20 @@ export class ViewSplash extends View {
   }
 
   onMount() {
+    let waited = false
     console.log('showing splash')
+
+    get('mainMenuItems', (result) => {
+      writeFileSync('menu_items.json', JSON.stringify(result), 'utf-8') // save to use later in main menu
+      console.log('b')
+      gotItems = true
+      if (waited) Application.switchTo('ViewMenu')
+    })
+
     setTimeout(() => {
-      if (peerSocket.readyState == peerSocket.OPEN) {
+      waited = true
+      if (gotItems) {
         this.goToMenu()
-      } else {
-        peerSocket.onopen = this.goToMenu
       }
     }, MIN_DISPLAY_MS)
   }

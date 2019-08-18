@@ -12,5 +12,5 @@
     </symbol>
 
     <use href="#triangle-left" fill="white" x="40%" y="33%" height="100" width="60" />
-    <use href="#triangle-right" fill="gray" x="40%" y="33%" height="100" width="60" />
+    <use href="#triangle-right" fill="#c439b6" x="40%" y="33%" height="100" width="60" />
 </svg>
