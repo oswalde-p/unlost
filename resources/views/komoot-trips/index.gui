@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="styles.css" />
-<svg id="view-menu" display="none">
+<svg id="komoot-trips" display="none">
     <symbol id="menu-item" class="menu-item" focusable="false" pointer-events="visible" system-events="all">
         <use id="item1" href="#panoramaview-item">
-            <rect id="icon" pointer-events="visible"/>
+            <rect id="image" />
             <text id="title">menu item</text>
         </use>
     </symbol>

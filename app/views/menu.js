@@ -17,14 +17,6 @@ export class ViewMenu extends View {
     super()
   }
 
-  handleStart = () => {
-    Application.switchTo('ViewSomethingElse')
-  }
-
-  handleKeypress = (evt) => {
-    if (evt.key === 'down') this.handleStart()
-  }
-
   onMount() {
     me.appTimeoutEnabled = false // Disable timeout
     const listItems = readFileSync('menu_items.json', 'json') // saved in the splash screen
@@ -33,11 +25,13 @@ export class ViewMenu extends View {
       let item =listItems[i]
       if(item) {
         viewItem.getElementById('title').text = gettext(item.t)
+        if (item.screenName) {
+          viewItem.getElementById('icon').addEventListener('click', () => Application.switchTo(item.screenName))
+        }
       } else {
         viewItem.style.display = 'none'
       }
     }
-    document.addEventListener('keypress', this.handleKeypress)
   }
 
   onRender() {
@@ -46,6 +40,5 @@ export class ViewMenu extends View {
 
   onUnmount() {
     // this.btnStart.removeEventListener("click", this.handleStart);
-    document.removeEventListener('keypress', this.handleKeypress)
   }
 }
